@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Instrument+Sans:wght@500&family=Instrument+Serif&display=swap');
+
+:root {
+  --rust-black: #191919;
+  --white: #ffffff;
+  --gray: #7b7b7b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--rust-black);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
