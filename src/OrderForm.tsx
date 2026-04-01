@@ -112,17 +112,7 @@ export default function OrderForm() {
 	if (submitStatus === 'success') {
 		return (
 			<div className="order-form-page">
-				<div className="hero-section">
-					<img src="/rustcakes-hero.png" alt="Rustcakes 3D Logo" className="hero-image" />
-				</div>
-
-				<nav className="nav">
-					<a href="#orders">orders</a>
-					<a href="#works">works</a>
-					<a href="#about">about</a>
-				</nav>
-
-				<div className="success-message">
+			<div className="success-message">
 					<h2>thank you for your order!</h2>
 					<p>
 						I've received your cake order and sent a confirmation to your email.
@@ -141,16 +131,6 @@ export default function OrderForm() {
 
 	return (
 		<div className="order-form-page">
-			<div className="hero-section">
-				<img src="/rustcakes-hero.png" alt="Rustcakes 3D Logo" className="hero-image" />
-			</div>
-
-			<nav className="nav">
-				<a href="#orders">orders</a>
-				<a href="#works">works</a>
-				<a href="#about">about</a>
-			</nav>
-
 			<section className="content-section">
 				<p className="intro-text">
 					please fill in the form below, and I will get back to you shortly.
@@ -399,11 +379,6 @@ export default function OrderForm() {
 				</div>
 			</form>
 
-			<footer className="footer">
-				<a href="https://instagram.com/rustcakes">@rustcakes</a>
-				<a href="#privacy">privacy policy</a>
-				<a href="#imprint">imprint</a>
-			</footer>
 		</div>
 	)
 }

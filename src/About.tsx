@@ -3,20 +3,6 @@ import './About.css'
 export default function About() {
   return (
     <div className="about-page">
-      <div className="hero-section">
-        <img
-          src="/rustcakes-hero.png"
-          alt="Rustcakes 3D Logo"
-          className="hero-image"
-        />
-      </div>
-
-      <nav className="nav">
-        <a href="#orders">orders</a>
-        <a href="#works">works</a>
-        <a href="#about">about</a>
-      </nav>
-
       <section className="content-section">
         <p className="intro-text">
           hi, my name is Hana and I bake vegan cakes in Berlin. If you haven't
@@ -54,12 +40,6 @@ export default function About() {
           <p>With love,</p>
         </div>
       </section>
-
-      <footer className="footer">
-        <a href="https://instagram.com/rustcakes">@rustcakes</a>
-        <a href="#privacy">privacy policy</a>
-        <a href="#imprint">imprint</a>
-      </footer>
 
       <div className="bottom-hero">
         <img

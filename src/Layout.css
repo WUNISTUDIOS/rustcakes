@@ -1,32 +1,18 @@
-.home-page {
+.layout {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	background-color: var(--rust-black);
-	padding: 20px;
-	box-sizing: border-box;
+	height: 100vh;
+	overflow: hidden;
 }
 
-.home-hero {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+.layout-main {
 	flex: 1;
-	height: 100%;
 	min-height: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
-.home-hero-image {
-	height: 100%;
-	width: auto;
-	max-width: 100%;
-	object-fit: contain;
-}
-
-.home-nav {
+.layout-nav {
 	display: flex;
 	gap: clamp(40px, 8vw, 120px);
 	justify-content: center;
@@ -35,35 +21,49 @@
 	font-family: 'Inter', sans-serif;
 	font-weight: 700;
 	font-size: clamp(24px, 5vw, 48px);
+	flex-shrink: 0;
 }
 
-.home-nav a {
+.layout-nav a {
 	color: var(--white);
 	text-decoration: none;
 	transition: opacity 0.2s;
 }
 
-.home-nav a:hover {
+.layout-nav a:hover {
 	opacity: 0.7;
 }
 
-.home-footer {
+.layout-nav--left {
+	justify-content: flex-start;
+	padding-left: clamp(20px, 8vw, 200px);
+	padding-right: clamp(20px, 8vw, 200px);
+}
+
+.layout-footer--left {
+	justify-content: flex-start;
+	padding-left: clamp(20px, 8vw, 200px);
+	padding-right: clamp(20px, 8vw, 200px);
+}
+
+.layout-footer {
 	display: flex;
 	gap: clamp(40px, 8vw, 120px);
 	justify-content: center;
 	width: 100%;
 	padding: 19px 50px;
 	font-family: 'Instrument Serif', serif;
-	font-size: 30px;
+	font-size: 12px;
 	color: var(--gray);
+	flex-shrink: 0;
 }
 
-.home-footer a {
+.layout-footer a {
 	color: var(--gray);
 	text-decoration: none;
 	transition: opacity 0.2s;
 }
 
-.home-footer a:hover {
+.layout-footer a:hover {
 	opacity: 0.7;
 }

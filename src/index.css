@@ -12,10 +12,15 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   background-color: var(--rust-black);
   color: var(--white);
-  min-height: 100vh;
 }
 
 #root {
