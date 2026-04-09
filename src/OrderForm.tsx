@@ -324,7 +324,7 @@ export default function OrderForm() {
 						value={formData.pickupDate}
 						onChange={handleInputChange}
 						required
-						className="form-input"
+						className={`form-input${!formData.pickupDate ? ' form-input--empty' : ''}`}
 					/>
 				</div>
 
@@ -367,16 +367,16 @@ export default function OrderForm() {
 					>
 						{isSubmitting ? 'sending...' : 'submit'}
 					</button>
-
-					{submitStatus === 'error' && (
-						<p className="error-message">{errorMessage}</p>
-					)}
-
-					<p className="privacy-text">
-						*by submitting your order, you agree to the{' '}
-						<a href="https://www.rustcakes.com/privacy-policy">privacy policy</a>
-					</p>
 				</div>
+
+				{submitStatus === 'error' && (
+					<p className="error-message">{errorMessage}</p>
+				)}
+
+				<p className="privacy-text">
+					*by submitting your order, you agree to the{' '}
+					<a href="https://www.rustcakes.com/privacy-policy">privacy policy</a>
+				</p>
 			</form>
 
 		</div>

@@ -19,8 +19,8 @@ body {
 }
 
 body {
-  background-color: var(--rust-black);
-  color: var(--white);
+  background-color: #b4cac6;
+  color: var(--rust-black);
 }
 
 #root {

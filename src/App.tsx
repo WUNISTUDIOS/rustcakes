@@ -29,7 +29,7 @@ function App() {
   }, [])
 
   return (
-    <Layout navAlign={currentPage === 'home' ? 'center' : 'left'}>
+    <Layout navAlign="center">
       {currentPage === 'orders' && <OrderForm />}
       {currentPage === 'about' && <About />}
       {currentPage === 'home' && <Home />}

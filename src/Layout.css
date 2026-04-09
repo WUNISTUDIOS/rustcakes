@@ -20,12 +20,12 @@
 	padding: 19px 0;
 	font-family: 'Inter', sans-serif;
 	font-weight: 700;
-	font-size: clamp(24px, 5vw, 48px);
+	font-size: clamp(24px, 4.5vw, 40px);
 	flex-shrink: 0;
 }
 
 .layout-nav a {
-	color: var(--white);
+	color: var(--rust-black);
 	text-decoration: none;
 	transition: opacity 0.2s;
 }
@@ -66,4 +66,9 @@
 
 .layout-footer a:hover {
 	opacity: 0.7;
+}
+
+.layout-footer-image {
+	width: 100%;
+	display: block;
 }

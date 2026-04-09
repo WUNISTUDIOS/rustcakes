@@ -4,7 +4,7 @@
   align-items: center;
   gap: 50px;
   padding: clamp(40px, 6vw, 80px) clamp(20px, 8vw, 200px) 0;
-  background-color: var(--rust-black);
+  background-color: #b4cac6;
 }
 
 .order-form-page .hero-section {
@@ -49,9 +49,9 @@
 .order-form-page .body-text {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 500;
-  font-size: clamp(18px, 3vw, 32px);
+  font-size: clamp(18px, 2.5vw, 24px);
   line-height: 1.5;
-  color: var(--white);
+  color: var(--rust-black);
 }
 
 .order-form-page .body-text {
@@ -91,8 +91,8 @@
 .form-label {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 700;
-  font-size: clamp(24px, 4vw, 36px);
-  color: var(--white);
+  font-size: clamp(24px, 3.5vw, 28px);
+  color: var(--rust-black);
   /* padding: 10px 0; */
 }
 
@@ -102,28 +102,32 @@
   height: 70px;
   padding: 10px 20px;
   background-color: transparent;
-  border: 4px solid var(--white);
+  border: 4px solid var(--rust-black);
   border-radius: 14px;
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
   font-size: clamp(16px, 2.5vw, 24px);
-  color: var(--white);
+  color: var(--rust-black);
   outline: none;
   transition: border-color 0.2s;
 }
 
 .form-input::placeholder {
-  color: #999;
+  color: var(--gray);
 }
 
 .form-input:focus,
 .form-select:focus {
-  border-color: var(--white);
+  border-color: var(--rust-black);
+}
+
+.form-select:invalid {
+  color: var(--gray);
 }
 
 .form-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23191919' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 50px center;
   background-size: 24px;
@@ -131,8 +135,8 @@
 }
 
 .form-select option {
-  background-color: var(--rust-black);
-  color: var(--white);
+  background-color: #b4cac6;
+  color: var(--rust-black);
 }
 
 /* Radio and Checkbox Styles */
@@ -162,9 +166,9 @@
 
 .radio-circle,
 .checkbox-circle {
-  width: 50px;
-  height: 50px;
-  border: 4px solid var(--white);
+  width: 42px;
+  height: 42px;
+  border: 4px solid var(--rust-black);
   border-radius: 50%;
   flex-shrink: 0;
   position: relative;
@@ -173,7 +177,7 @@
 
 .radio-option input:checked + .radio-circle,
 .checkbox-option input:checked + .checkbox-circle {
-  background-color: var(--white);
+  background-color: var(--rust-black);
 }
 
 .radio-text,
@@ -181,12 +185,12 @@
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
   font-size: clamp(16px, 2.5vw, 24px);
-  color: #999;
+  color: var(--rust-black);
 }
 
 .radio-option input:checked ~ .radio-text,
 .checkbox-option input:checked ~ .checkbox-text {
-  color: var(--white);
+  color: var(--rust-black);
 }
 
 /* Email Warning */
@@ -194,7 +198,7 @@
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
   font-size: clamp(14px, 2vw, 20px);
-  color: var(--white);
+  color: var(--rust-black);
   width: 100%;
   max-width: 1200px;
 }
@@ -202,9 +206,7 @@
 /* Submit Section */
 .submit-section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
+  justify-content: center;
   padding: 50px 0;
 }
 
@@ -234,12 +236,13 @@
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
   font-size: clamp(12px, 2vw, 18px);
-  color: var(--white);
+  color: var(--rust-black);
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .privacy-text a {
-  color: var(--white);
+  color: var(--rust-black);
   text-decoration: underline;
 }
 
@@ -263,7 +266,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: clamp(24px, 5vw, 48px);
-  color: var(--white);
+  color: var(--rust-black);
   margin-bottom: 30px;
 }
 
@@ -271,7 +274,7 @@
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 500;
   font-size: clamp(16px, 3vw, 24px);
-  color: var(--white);
+  color: var(--rust-black);
   margin-bottom: 50px;
   line-height: 1.6;
 }
@@ -310,10 +313,13 @@
 
 /* Date input styling */
 .form-input[type="date"] {
-  color-scheme: dark;
+  color-scheme: light;
+}
+
+.form-input[type="date"].form-input--empty::-webkit-datetime-edit {
+  color: var(--gray);
 }
 
 .form-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
   cursor: pointer;
 }

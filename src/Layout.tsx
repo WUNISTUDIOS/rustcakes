@@ -12,7 +12,7 @@ export default function Layout({ children, navAlign = 'center' }: { children: Re
 			<main className="layout-main">
 				{children}
 				<footer className={`layout-footer${navAlign === 'left' ? ' layout-footer--left' : ''}`}>
-					<a href="https://instagram.com/rustcakes">@rustcakes</a>
+					<a href="https://instagram.com/rustcakes" target="_blank" rel="noopener noreferrer">@rustcakes</a>
 					<a href="#privacy">privacy policy</a>
 					<a href="#imprint">imprint</a>
 				</footer>
