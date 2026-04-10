@@ -25,7 +25,7 @@
 }
 
 .layout-nav a {
-	color: var(--rust-black);
+	color: var(--white);
 	text-decoration: none;
 	transition: opacity 0.2s;
 }
