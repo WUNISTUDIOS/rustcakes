@@ -79,34 +79,38 @@ export default function OrderForm() {
       comments: formData.comments,
     }
 
-    try {
-      // Send both emails in parallel
-      await Promise.all([
-        // Email to customer (confirmation)
-        emailjs.send(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_CUSTOMER_TEMPLATE_ID,
-          templateParams,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        ),
-        // Email to owner (order details)
-        emailjs.send(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_OWNER_TEMPLATE_ID,
-          templateParams,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        ),
-      ])
+    const [customerResult, ownerResult] = await Promise.allSettled([
+      // Confirmation email to customer
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_CUSTOMER_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ),
+      // Order notification to owner (Hana)
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_OWNER_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ),
+    ])
 
+    const failures = [
+      customerResult.status === 'rejected' && `customer: ${(customerResult.reason as any)?.text || customerResult.reason}`,
+      ownerResult.status === 'rejected' && `owner: ${(ownerResult.reason as any)?.text || ownerResult.reason}`,
+    ].filter(Boolean)
+
+    if (failures.length > 0) {
+      console.error('EmailJS failures:', failures)
+      setSubmitStatus('error')
+      setErrorMessage(`Failed to send: ${failures.join(' | ')}`)
+    } else {
       setSubmitStatus('success')
       setFormData(initialFormData)
-    } catch (error) {
-      console.error('EmailJS error:', error)
-      setSubmitStatus('error')
-      setErrorMessage('Failed to send order. Please try again or contact us directly.')
-    } finally {
-      setIsSubmitting(false)
     }
+
+    setIsSubmitting(false)
   }
 
   if (submitStatus === 'success') {
@@ -203,11 +207,13 @@ export default function OrderForm() {
             required
             className="form-select"
           >
-            <option value="" disabled>select serving</option>
-            <option value="6-8">6-8 people</option>
-            <option value="10-12">10-12 people</option>
-            <option value="14-16">14-16 people</option>
-            <option value="18-20">18-20 people</option>
+            <option value="" disabled>select servings</option>
+            <option value="up to 12 portions: 130€ / customization + 25€ extra (155€)">up to 12 portions: 130€ / customization + 25€ extra (155€)</option>
+            <option value="up to 16 portions: 155€ / customization + 25€ extra (180€)">up to 16 portions: 155€ / customization + 25€ extra (180€)</option>
+            <option value="up to 22 portions: 185€ / customization + 30€ extra (215€)">up to 22 portions: 185€ / customization + 30€ extra (215€)</option>
+            <option value="up to 26 portions: 210€ / customization + 30€ extra (240€)">up to 26 portions: 210€ / customization + 30€ extra (240€)</option>
+            <option value="up to 35 portions: 245€ / customization + 40€ extra (285€)">up to 35 portions: 245€ / customization + 40€ extra (285€)</option>
+            <option value="up to 45 portions: 280€ / customization + 40€ extra (320€)">up to 45 portions: 280€ / customization + 40€ extra (320€)</option>
           </select>
         </div>
 
@@ -367,16 +373,15 @@ export default function OrderForm() {
           >
             {isSubmitting ? 'sending...' : 'submit'}
           </button>
+          <p className="privacy-text">
+            *by submitting your order, you agree to the{' '}
+            <a href="#privacy">privacy policy</a>
+          </p>
         </div>
 
         {submitStatus === 'error' && (
           <p className="error-message">{errorMessage}</p>
         )}
-
-        <p className="privacy-text">
-          *by submitting your order, you agree to the{' '}
-          <a href="https://www.rustcakes.com/privacy-policy">privacy policy</a>
-        </p>
       </form>
 
     </div>

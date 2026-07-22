@@ -13,15 +13,18 @@
 }
 
 .layout-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
 	display: flex;
 	gap: clamp(40px, 8vw, 120px);
 	justify-content: center;
-	width: 100%;
 	padding: 19px 0;
 	font-family: 'Inter', sans-serif;
 	font-weight: 700;
 	font-size: clamp(24px, 4.5vw, 40px);
-	flex-shrink: 0;
 }
 
 .layout-nav a {
@@ -47,15 +50,18 @@
 }
 
 .layout-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
 	display: flex;
 	gap: clamp(40px, 8vw, 120px);
 	justify-content: center;
-	width: 100%;
 	padding: 19px 50px;
 	font-family: 'Instrument Serif', serif;
-	font-size: 12px;
+	font-size: clamp(12px, 2vw, 14px);
 	color: var(--gray);
-	flex-shrink: 0;
 }
 
 .layout-footer a {
