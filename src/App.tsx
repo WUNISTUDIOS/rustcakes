@@ -37,7 +37,7 @@ function App() {
   }, [])
 
   return (
-    <Layout navAlign="center">
+    <Layout navAlign="center" navBg={currentPage !== 'home'}>
       {currentPage === 'orders' && <OrderForm />}
       {currentPage === 'about' && <About />}
       {currentPage === 'imprint' && <Imprint />}
