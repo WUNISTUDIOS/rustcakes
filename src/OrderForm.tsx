@@ -28,7 +28,7 @@ const initialFormData: FormData = {
   phone: '',
 }
 
-const EXTRAS_OPTIONS = ['fruit', 'compote', 'chocolate drip']
+const EXTRAS_OPTIONS = ['fruit', 'compote', 'herbs']
 
 export default function OrderForm() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
@@ -304,7 +304,7 @@ export default function OrderForm() {
             name="comments"
             value={formData.comments}
             onChange={handleInputChange}
-            placeholder="keep it short"
+            placeholder="please keep it short"
             className="form-input"
           />
         </div>

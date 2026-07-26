@@ -19,7 +19,6 @@ export default function Imprint() {
           </p>
           <p>
             Kontakt:<br />
-            Telefon: +49 152 03708576<br />
             E-Mail: rust.c4kes@gmail.com
           </p>
 
