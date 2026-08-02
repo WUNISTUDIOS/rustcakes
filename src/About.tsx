@@ -43,7 +43,7 @@ export default function About() {
 
       <div className="bottom-hero">
         <img
-          src="/rustcakes-hero.png"
+          src={`${import.meta.env.BASE_URL}rustcakes-hero.png`}
           alt="Rustcakes 3D Logo"
           className="hero-image"
         />

@@ -1,6 +1,7 @@
 import './Home.css'
 
 const cakeImages = [
+  'wormCake.webp',
   'Photo_04_12_2025__17_34_17.webp',
   'Photo_09_01_2026__15_54_31.webp',
   'Photo_12_12_2025__16_49_20.webp',
@@ -25,7 +26,7 @@ export default function Home() {
       <div className="home-hero">
         <a href="#">
           <img
-            src="/RustOriginalRerender.webp"
+            src={`${import.meta.env.BASE_URL}RustOriginalRerender.webp`}
             alt="Rustcakes 3D Logo"
             className="home-hero-image"
           />
@@ -35,7 +36,7 @@ export default function Home() {
         {cakeImages.map((filename) => (
           <img
             key={filename}
-            src={`/cakesNoBG/${filename}`}
+            src={`${import.meta.env.BASE_URL}cakesNoBG/${filename}`}
             alt="Rustcakes cake"
           />
         ))}
