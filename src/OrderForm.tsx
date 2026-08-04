@@ -1,5 +1,7 @@
-import { useState, type FormEvent } from 'react'
+import { useState, useRef, useEffect, type FormEvent } from 'react'
 import emailjs from '@emailjs/browser'
+import { DayPicker } from 'react-day-picker'
+import 'react-day-picker/style.css'
 import './OrderForm.css'
 
 interface FormData {
@@ -36,6 +38,18 @@ export default function OrderForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [calendarOpen, setCalendarOpen] = useState(false)
+  const calendarRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (calendarRef.current && !calendarRef.current.contains(e.target as Node)) {
+        setCalendarOpen(false)
+      }
+    }
+    if (calendarOpen) document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [calendarOpen])
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -52,6 +66,19 @@ export default function OrderForm() {
         : [...prev.extras, extra],
     }))
   }
+
+  const handleDaySelect = (day: Date | undefined) => {
+    setFormData((prev) => ({
+      ...prev,
+      pickupDate: day
+        ? `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`
+        : '',
+    }))
+  }
+
+  const minPickupDate = new Date()
+  minPickupDate.setDate(minPickupDate.getDate() + 7)
+  minPickupDate.setHours(0, 0, 0, 0)
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -324,14 +351,60 @@ export default function OrderForm() {
 
         <div className="form-group">
           <label className="form-label">when would you like to pick up your cake</label>
-          <input
-            type="date"
-            name="pickupDate"
-            value={formData.pickupDate}
-            onChange={handleInputChange}
-            required
-            className={`form-input${!formData.pickupDate ? ' form-input--empty' : ''}`}
-          />
+          <div className="date-field-wrapper" ref={calendarRef}>
+            <button
+              type="button"
+              className={`date-trigger form-input${!formData.pickupDate ? ' form-input--empty' : ''}`}
+              onClick={() => setCalendarOpen((o) => !o)}
+              aria-haspopup="dialog"
+              aria-expanded={calendarOpen}
+            >
+              <span className="date-trigger-text">
+                {formData.pickupDate
+                  ? new Date(formData.pickupDate + 'T12:00:00').toLocaleDateString('en-GB', {
+                      weekday: 'long',
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                    })
+                  : 'select a pickup date'}
+              </span>
+              <svg className="date-trigger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </button>
+
+            {calendarOpen && (
+              <div className="day-picker-popover" role="dialog">
+                <DayPicker
+                  mode="single"
+                  selected={
+                    formData.pickupDate
+                      ? new Date(formData.pickupDate + 'T12:00:00')
+                      : undefined
+                  }
+                  onSelect={(day) => {
+                    handleDaySelect(day)
+                    setCalendarOpen(false)
+                  }}
+                  disabled={[
+                    { dayOfWeek: [0, 1, 2] },
+                    { before: minPickupDate },
+                    new Date('2026-12-25'),
+                    new Date('2026-12-26'),
+                    new Date('2027-01-01'),
+                  ]}
+                />
+              </div>
+            )}
+
+            {!formData.pickupDate && (
+              <input type="text" name="pickupDate" required className="day-picker-required" readOnly />
+            )}
+          </div>
         </div>
 
         <div className="form-group">

@@ -314,15 +314,114 @@
   pointer-events: none;
 }
 
-/* Date input styling */
-.form-input[type="date"] {
-  color-scheme: light;
+/* Date field — trigger button + popover */
+.date-field-wrapper {
+  position: relative;
 }
 
-.form-input[type="date"].form-input--empty::-webkit-datetime-edit {
+.date-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 4px solid var(--white);
+  border-radius: 14px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2.5vw, 24px);
+  color: var(--white);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+
+.date-trigger.form-input--empty .date-trigger-text {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.date-trigger-icon {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+/* Popover calendar */
+.day-picker-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 100;
+  background-color: #b4cac6;
+  border: 4px solid var(--white);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+
+  /* react-day-picker CSS variable overrides */
+  --rdp-accent-color: var(--white);
+  --rdp-accent-background-color: rgba(255, 255, 255, 0.2);
+  --rdp-today-color: var(--white);
+  --rdp-disabled-opacity: 0.25;
+  --rdp-outside-opacity: 0.4;
+  --rdp-day-height: 44px;
+  --rdp-day-width: 44px;
+  --rdp-day_button-height: 40px;
+  --rdp-day_button-width: 40px;
+  --rdp-selected-border: 2px solid var(--white);
+}
+
+.day-picker-popover .rdp-root {
+  color: var(--white);
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+.day-picker-popover .rdp-nav button,
+.day-picker-popover .rdp-button_previous,
+.day-picker-popover .rdp-button_next {
   color: var(--white);
 }
 
-.form-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
+.day-picker-popover .rdp-chevron {
+  fill: var(--white);
+}
+
+.day-picker-popover .rdp-nav button:hover,
+.day-picker-popover .rdp-button_previous:hover,
+.day-picker-popover .rdp-button_next:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.day-picker-popover .rdp-month_caption,
+.day-picker-popover .rdp-weekday {
+  color: var(--white);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+}
+
+.day-picker-popover .rdp-day_button {
+  color: var(--white);
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+.day-picker-popover .rdp-day_button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.day-picker-popover .rdp-selected .rdp-day_button {
+  background-color: var(--white);
+  color: #b4cac6;
+  font-weight: 700;
+}
+
+/* Hidden required sentinel */
+.day-picker-required {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  border: none;
+  padding: 0;
 }
