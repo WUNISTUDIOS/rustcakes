@@ -146,8 +146,7 @@ export default function OrderForm() {
         <div className="success-message">
           <h2>thank you for your order!</h2>
           <p>
-            I've received your cake order and sent a confirmation to your email.
-            I'll get back to you shortly to confirm the details.
+            i've received your cake order and a confirmation email will be sent shortly to confirm the details, thank you!
           </p>
           <button
             className="submit-button"
