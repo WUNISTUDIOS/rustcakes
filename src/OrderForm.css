@@ -5,6 +5,7 @@
   gap: 50px;
   padding: clamp(60px, 9vw, 120px) clamp(20px, 8vw, 200px);
   background-color: #b4cac6;
+  flex: 1 0 auto;
 }
 
 .order-form-page .hero-section {
