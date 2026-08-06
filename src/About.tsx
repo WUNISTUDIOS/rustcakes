@@ -3,14 +3,6 @@ import './About.css'
 export default function About() {
   return (
     <div className="about-page" style={{ paddingBottom: 'clamp(40px, 6vw, 80px)' }}>
-      <section className="content-section">
-        <p className="intro-text">
-          hiiiii, my name is Hana and I bake vegan cakes in Berlin. If you haven't
-          seen my work yet, please check the portfolio to see what I do. I'm
-          always up for a trade, whether it's art or any other skill or service.
-        </p>
-      </section>
-
       <h2 className="section-header">baking process</h2>
 
       <section className="content-section">

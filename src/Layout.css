@@ -14,6 +14,10 @@
 	flex-direction: column;
 }
 
+.layout-main > * {
+	flex-shrink: 0;
+}
+
 .layout-nav {
 	position: fixed;
 	top: 0;

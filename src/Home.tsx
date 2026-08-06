@@ -32,6 +32,15 @@ export default function Home() {
           />
         </a>
       </div>
+      <div className="home-intro">
+        <p>
+          hiiiii, my name is Hana and I bake vegan cakes in Berlin. If you
+          haven't seen my work yet, please scroll below to see what I do. I'm
+          always up for a trade, whether it's art or any other skill or
+          service. Please check out the about page for additional
+          information on the baking process.
+        </p>
+      </div>
       <div className="cake-gallery">
         {cakeImages.map((filename) => (
           <img
