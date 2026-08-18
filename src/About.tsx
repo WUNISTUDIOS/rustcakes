@@ -2,7 +2,19 @@ import './About.css'
 
 export default function About() {
   return (
-    <div className="about-page" style={{ paddingBottom: 'clamp(40px, 6vw, 80px)' }}>
+    <div className="about-page" style={{ paddingBottom: 'clamp(40px, 6vw, 80px)' }}> 
+      <section className="content-section">
+        <div className="body-text">
+          <p>
+            hiiiii, my name is Hana and I bake vegan cakes in Berlin. If you
+            haven't seen my work yet, please scroll below to see what I do. I'm
+            always up for a trade, whether it's art or any other skill or
+            service. Please check out the about page for additional
+            information on the baking process.
+          </p>
+        </div>
+      </section>
+
       <h2 className="section-header">baking process</h2>
 
       <section className="content-section">
@@ -35,7 +47,7 @@ export default function About() {
 
       <div className="bottom-hero">
         <img
-          src={`${import.meta.env.BASE_URL}rustcakes-hero.png`}
+          src={`${import.meta.env.BASE_URL}Rusty_rustcakes3D_footer_alpha.webp`}
           alt="Rustcakes 3D Logo"
           className="hero-image"
         />

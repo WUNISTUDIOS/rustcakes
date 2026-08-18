@@ -26,20 +26,11 @@ export default function Home() {
       <div className="home-hero">
         <a href="#">
           <img
-            src={`${import.meta.env.BASE_URL}RustOriginalRerender.webp`}
+            src={`${import.meta.env.BASE_URL}Rusty_rustcakes3D_hero_alpha.webp`}
             alt="Rustcakes 3D Logo"
             className="home-hero-image"
           />
         </a>
-      </div>
-      <div className="home-intro">
-        <p>
-          hiiiii, my name is Hana and I bake vegan cakes in Berlin. If you
-          haven't seen my work yet, please scroll below to see what I do. I'm
-          always up for a trade, whether it's art or any other skill or
-          service. Please check out the about page for additional
-          information on the baking process.
-        </p>
       </div>
       <div className="cake-gallery">
         {cakeImages.map((filename) => (
