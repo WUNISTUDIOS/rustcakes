@@ -163,7 +163,7 @@ export default function OrderForm() {
     <div className="order-form-page">
       <section className="content-section">
         <p className="intro-text">
-          please fill in the form below, and I will get back to you shortly.
+          please fill in the form below, and I will get back to you shortly via email.
           when your cake is ready, you can pick it up at{' '}
           <span className="highlight-italic">cafe neundrei</span>,{' '}
           <span className="highlight-underline">monbijouplatz 2, 10178 berlin.</span>
@@ -181,11 +181,11 @@ export default function OrderForm() {
 
       <section className="content-section">
         <p className="body-text">
-          <span>cake pickups only possible from </span>
+          <span>cake pickups are only possible from </span>
           <span className="highlight-italic">wednesday until saturday.</span>
         </p>
         <p className="body-text">
-          <span>please place cake orders at least </span>
+          <span>please place orders at least </span>
           <span className="highlight-italic">one week in advance!</span>
         </p>
         <p className="body-text">
@@ -198,17 +198,17 @@ export default function OrderForm() {
 
       <section className="content-section">
         <p className="body-text">
-          once your cake is confirmed, production begins. Please be patient as
-          cake production takes time. Order at least a week in advance, especially
+          once your cake is confirmed via email, production begins. please be patient as
+          production takes time. order at least a week in advance, especially
           if your order is for a weekend.
         </p>
         <p className="body-text">
           make sure to take special care of your cake once you've received it.
-          transporting the cake improperly could damage it.
+          transporting the cake improperly can damage it.
         </p>
         <p className="body-text">
-          if you have a specific design or a theme in mind you wish me to follow,
-          you will be charged extra for a customization.
+          if you have a specific design or theme you wish me to follow,
+          you will be charged extra for customization. please refer to the about page for additional information on the baking process
         </p>
       </section>
 

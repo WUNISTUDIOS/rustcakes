@@ -6,36 +6,30 @@ export default function About() {
       <section className="content-section">
         <div className="body-text">
           <p>
-            hiiiii, my name is Hana and I bake vegan cakes in Berlin. If you
-            haven't seen my work yet, please scroll below to see what I do. I'm
-            always up for a trade, whether it's art or any other skill or
-            service. Please check out the about page for additional
-            information on the baking process.
+            hiiiii, my name is hana and I bake vegan cakes in berlin.
           </p>
         </div>
       </section>
 
-      <h2 className="section-header">baking process</h2>
+      {/* <h2 className="section-header">baking process</h2> */}
 
       <section className="content-section">
         <div className="body-text">
           <p>
-            if you want to order a cake, please note that the design is mostly
-            up to me. You can choose colors and moods, but every cake is unique.
+            if you want to order a cake, please note that the design is mostly up to me. you can choose colors, moods and provide additional references.
           </p>
           <p>
             In general, my cakes are not too sweet, but still full of flavor.
-            All my cakes are made with plant-based butter, so you still get the
+            all my cakes are made with plant-based butter, so you still get the
             texture and taste of a classic fluffy sponge.
           </p>
           <p>
             with a variety of options available, you can tailor each cake to
-            include your favorite flavors. If you aren't sure what will work, I
+            include your favorite flavors. if you aren't sure what will work, I
             can help you find the perfect match.
           </p>
           <p>
-            If you see a cake you like on my Instagram, we can talk about how we
-            can adjust it to your style, as all my cakes are unique.
+            If you see a cake you like from my portfolio or instagram, the design can be tailored to fit your style or event! but all cakes must remain unique.
           </p>
           <p>
             thanks for taking a look at my work and I hope to hear from you
