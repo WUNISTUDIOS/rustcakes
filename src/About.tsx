@@ -11,8 +11,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* <h2 className="section-header">baking process</h2> */}
-
       <section className="content-section">
         <div className="body-text">
           <p>

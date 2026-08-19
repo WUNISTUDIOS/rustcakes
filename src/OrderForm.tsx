@@ -32,6 +32,14 @@ const initialFormData: FormData = {
 
 const EXTRAS_OPTIONS = ['fruit', 'compote', 'herbs']
 
+const getErrorText = (reason: unknown): string => {
+  if (reason && typeof reason === 'object' && 'text' in reason) {
+    const text = (reason as { text?: unknown }).text
+    if (text) return String(text)
+  }
+  return String(reason)
+}
+
 export default function OrderForm() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [honeypot, setHoneypot] = useState('')
@@ -124,8 +132,8 @@ export default function OrderForm() {
     ])
 
     const failures = [
-      customerResult.status === 'rejected' && `customer: ${(customerResult.reason as any)?.text || customerResult.reason}`,
-      ownerResult.status === 'rejected' && `owner: ${(ownerResult.reason as any)?.text || ownerResult.reason}`,
+      customerResult.status === 'rejected' && `customer: ${getErrorText(customerResult.reason)}`,
+      ownerResult.status === 'rejected' && `owner: ${getErrorText(ownerResult.reason)}`,
     ].filter(Boolean)
 
     if (failures.length > 0) {
@@ -144,6 +152,11 @@ export default function OrderForm() {
     return (
       <div className="order-form-page">
         <div className="success-message">
+          <img
+            src={`${import.meta.env.BASE_URL}cakesNoBG/Photo_09_01_2026__15_54_31.webp`}
+            alt="Rustcakes frog cake"
+            className="success-cake-image"
+          />
           <h2>thank you for your order!</h2>
           <p>
             i've received your cake order and a confirmation email will be sent shortly to confirm the details, thank you!
@@ -161,6 +174,15 @@ export default function OrderForm() {
 
   return (
     <div className="order-form-page">
+      {import.meta.env.DEV && (
+        <button
+          type="button"
+          className="dev-preview-confirmation-button"
+          onClick={() => setSubmitStatus('success')}
+        >
+          dev: preview confirmation page
+        </button>
+      )}
       <section className="content-section">
         <p className="intro-text">
           please fill in the form below, and I will get back to you shortly via email.
@@ -177,8 +199,6 @@ export default function OrderForm() {
         </p>
       </section>
 
-      {/* <div className="spacer" /> */}
-
       <section className="content-section">
         <p className="body-text">
           <span>cake pickups are only possible from </span>
@@ -193,8 +213,6 @@ export default function OrderForm() {
           <span className="highlight-italic">9 am to 5 pm</span>
         </p>
       </section>
-
-      {/* <div className="spacer" /> */}
 
       <section className="content-section">
         <p className="body-text">

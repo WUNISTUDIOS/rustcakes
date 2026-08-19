@@ -8,10 +8,17 @@
   flex: 1 0 auto;
 }
 
-.order-form-page .hero-section {
-  width: 100%;
-  max-width: 1200px;
-  padding: 100px 0;
+/* Dev-only helper, stripped from production builds by Vite */
+.dev-preview-confirmation-button {
+  align-self: center;
+  padding: 6px 14px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #b4cac6;
+  background-color: #333;
+  border: 1px dashed #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .order-form-page .hero-image {
@@ -67,11 +74,6 @@
 .highlight-underline {
   font-weight: 700;
   text-decoration: underline;
-}
-
-.spacer {
-  height: 10px;
-  width: 100%;
 }
 
 /* Form Styles */
@@ -264,6 +266,16 @@
   max-width: 1200px;
   text-align: center;
   padding: 100px 0;
+}
+
+.success-cake-image {
+  /* same footprint as the ascii art it replaced: 34 cols x 18 lines at
+     font-size clamp(8px, 3vw, 13px), line-height 1.15, ~0.6em char width */
+  width: clamp(164px, 61.5vw, 266px);
+  height: clamp(166px, 62.1vw, 269px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 30px;
 }
 
 .success-message h2 {

@@ -1,12 +1,15 @@
 .layout {
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
+	min-height: 100dvh;
 }
 
 .layout-main {
 	overflow-x: hidden;
 	display: flex;
 	flex-direction: column;
+	flex: 1;
 }
 
 .layout-main > * {
@@ -73,9 +76,4 @@
 
 .layout-footer a:hover {
 	opacity: 0.7;
-}
-
-.layout-footer-image {
-	width: 100%;
-	display: block;
 }
