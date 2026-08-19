@@ -43,6 +43,5 @@
                     --------::::::::::::::::::::::::::::-::
                           -------------:-::-::::::::-
 ```
-<p align="center"><sub>rusty — rendered from an actual rustcakes cake photo</sub></p>
 
 # rustcakes
