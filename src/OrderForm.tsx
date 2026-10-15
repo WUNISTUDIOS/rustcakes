@@ -114,35 +114,20 @@ export default function OrderForm() {
       comments: formData.comments,
     }
 
-    const [customerResult, ownerResult] = await Promise.allSettled([
-      // Confirmation email to customer
-      emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_CUSTOMER_TEMPLATE_ID,
-        templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      ),
-      // Order notification to owner (Hana)
-      emailjs.send(
+    // Order notification to owner (Hana) - she confirms with the customer herself
+    try {
+      await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_OWNER_TEMPLATE_ID,
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      ),
-    ])
-
-    const failures = [
-      customerResult.status === 'rejected' && `customer: ${getErrorText(customerResult.reason)}`,
-      ownerResult.status === 'rejected' && `owner: ${getErrorText(ownerResult.reason)}`,
-    ].filter(Boolean)
-
-    if (failures.length > 0) {
-      console.error('EmailJS failures:', failures)
-      setSubmitStatus('error')
-      setErrorMessage(`Failed to send: ${failures.join(' | ')}`)
-    } else {
+      )
       setSubmitStatus('success')
       setFormData(initialFormData)
+    } catch (reason) {
+      console.error('EmailJS failure:', reason)
+      setSubmitStatus('error')
+      setErrorMessage(`Failed to send: ${getErrorText(reason)}`)
     }
 
     setIsSubmitting(false)
