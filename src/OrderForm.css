@@ -266,6 +266,15 @@
   max-width: 1200px;
   text-align: center;
   padding: 100px 0;
+  container-type: inline-size;
+}
+
+/* On narrow screens shrink text and padding together so the button keeps
+   its desktop proportions on one line; caps match the base .submit-button */
+.success-message .submit-button {
+  padding: min(19px, 4.4cqi) min(100px, 23cqi);
+  font-size: min(clamp(18px, 3vw, 24px), 5.6cqi);
+  white-space: nowrap;
 }
 
 .success-cake-image {
